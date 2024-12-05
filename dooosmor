@@ -1,0 +1,21 @@
+import requests
+import time
+
+def send_requests(url):
+    count = 0
+    while True:
+        try:
+            response = requests.get(url)
+            count += 1
+            print(f"[{count}] درخواست ارسال شد. وضعیت: {response.status_code}")
+        except requests.exceptions.RequestException as e:
+            print(f"[{count}] خطا در ارسال درخواست: {e}")
+        time.sleep(6)  # ارسال 10 درخواست در هر دقیقه (هر 6 ثانیه یکبار)
+
+if name == "main":
+    url = input("آدرس وب‌سایت را وارد کنید (با http یا https): ")
+    if not url.startswith("http"):
+        print("لطفاً یک آدرس معتبر با http یا https وارد کنید.")
+    else:
+        print("شروع ارسال درخواست‌ها...")
+        send_requests(url)
