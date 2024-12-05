@@ -12,7 +12,7 @@ def send_requests(url):
             print(f"[{count}] خطا در ارسال درخواست: {e}")
         time.sleep(6)  # ارسال 10 درخواست در هر دقیقه (هر 6 ثانیه یکبار)
 
-if name == "main":
+if __name__ == "__main__":  # اصلاح شده
     url = input("آدرس وب‌سایت را وارد کنید (با http یا https): ")
     if not url.startswith("http"):
         print("لطفاً یک آدرس معتبر با http یا https وارد کنید.")
